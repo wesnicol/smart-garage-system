@@ -1,0 +1,120 @@
+[
+    {
+        "id": "9daf0e8f.13384",
+        "type": "tab",
+        "label": "Camera Feed",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "89425d4b.dbda1",
+        "type": "inject",
+        "z": "9daf0e8f.13384",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "3942f3ab.578c4c"
+            ]
+        ]
+    },
+    {
+        "id": "3942f3ab.578c4c",
+        "type": "exec",
+        "z": "9daf0e8f.13384",
+        "command": "raspistill",
+        "addpay": true,
+        "append": "-vf -w 640 -h 480 -o -",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "c8b67af1.a461b8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c8b67af1.a461b8",
+        "type": "base64",
+        "z": "9daf0e8f.13384",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 540,
+        "y": 200,
+        "wires": [
+            [
+                "3f57f19e.06a81e"
+            ]
+        ]
+    },
+    {
+        "id": "3f57f19e.06a81e",
+        "type": "template",
+        "z": "9daf0e8f.13384",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<img width=\"294px\" height=\"221px\" src=\"data:image/jpg;base64,{{{payload}}}\">",
+        "output": "str",
+        "x": 700,
+        "y": 200,
+        "wires": [
+            [
+                "cf4da671.896018"
+            ]
+        ]
+    },
+    {
+        "id": "cf4da671.896018",
+        "type": "ui_template",
+        "z": "9daf0e8f.13384",
+        "group": "2a358d.f1769a74",
+        "name": "Display Camera Feed",
+        "order": 0,
+        "width": "6",
+        "height": "5",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 920,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2a358d.f1769a74",
+        "type": "ui_group",
+        "z": "",
+        "name": "Other Information",
+        "tab": "6b4d9d10.d13ca4",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "6b4d9d10.d13ca4",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard"
+    }
+]

@@ -1,0 +1,95 @@
+[
+    {
+        "id": "5a8a04e1.720acc",
+        "type": "tab",
+        "label": "Flooding Input",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8f6102f.82fff",
+        "type": "rpi-gpio in",
+        "z": "5a8a04e1.720acc",
+        "name": "Flooding Sensor Input",
+        "pin": "11",
+        "intype": "down",
+        "debounce": "25",
+        "read": false,
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "aae5059.c8c75f8",
+                "6b3de074.ffe17"
+            ]
+        ]
+    },
+    {
+        "id": "aae5059.c8c75f8",
+        "type": "debug",
+        "z": "5a8a04e1.720acc",
+        "name": "Flooding Sensor Input (pin 40)",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 490,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e4172fff.c5e3b",
+        "type": "ui_toast",
+        "z": "5a8a04e1.720acc",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "outputs": 1,
+        "ok": "Close Popup",
+        "cancel": "",
+        "topic": "",
+        "name": "Flood Notification",
+        "x": 710,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6b3de074.ffe17",
+        "type": "function",
+        "z": "5a8a04e1.720acc",
+        "name": "",
+        "func": "while(true)\n{\n\n    if(msg.payload)\n    {\n        msg.payload = \"It is flooding!\";\n        msg.topic = \"\";\n        return msg;\n    }\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 240,
+        "wires": [
+            [
+                "e4172fff.c5e3b"
+            ]
+        ]
+    },
+    {
+        "id": "ad847c46.f53cb",
+        "type": "inject",
+        "z": "5a8a04e1.720acc",
+        "name": "",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 170,
+        "y": 340,
+        "wires": [
+            [
+                "6b3de074.ffe17"
+            ]
+        ]
+    }
+]

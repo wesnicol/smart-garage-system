@@ -1,0 +1,236 @@
+[
+    {
+        "id": "a4fce772.bbc848",
+        "type": "tab",
+        "label": "Temerature input",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a94e16f5.763168",
+        "type": "debug",
+        "z": "a4fce772.bbc848",
+        "name": "Temperature Sensor Data Display",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 840,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "6b3ff467.c1a68c",
+        "type": "ui_gauge",
+        "z": "a4fce772.bbc848",
+        "name": "Temerature Sensor Data Gauge",
+        "group": "3a4a368d.cd645a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Current Temperature",
+        "label": "F",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "130",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "32",
+        "seg2": "85",
+        "x": 970,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "cdc5ada6.b31fe",
+        "type": "inject",
+        "z": "a4fce772.bbc848",
+        "name": "Trigger Data",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "8",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "4",
+        "x": 100,
+        "y": 420,
+        "wires": [
+            [
+                "48af3931.d08a88"
+            ]
+        ]
+    },
+    {
+        "id": "48af3931.d08a88",
+        "type": "random",
+        "z": "a4fce772.bbc848",
+        "name": "Random Temperature Value",
+        "low": "-20",
+        "high": "130",
+        "inte": "true",
+        "property": "payload",
+        "x": 320,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a9b077da.80a508",
+        "type": "comment",
+        "z": "a4fce772.bbc848",
+        "name": "TRUE DATA ABOVE",
+        "info": "",
+        "x": 110,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "7f916034.ba2e7",
+        "type": "comment",
+        "z": "a4fce772.bbc848",
+        "name": "SAMPLE DATA BELOW",
+        "info": "",
+        "x": 120,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "6ce68ce0.ffa534",
+        "type": "sqlite",
+        "z": "a4fce772.bbc848",
+        "mydb": "a8d48771.9912b8",
+        "sqlquery": "msg.topic",
+        "sql": "CREATE table msg.payload(temperature int(8));",
+        "name": "dB access",
+        "x": 910,
+        "y": 340,
+        "wires": [
+            [
+                "88f33456.a8bcd8"
+            ]
+        ]
+    },
+    {
+        "id": "88f33456.a8bcd8",
+        "type": "debug",
+        "z": "a4fce772.bbc848",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1090,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "c87fd659.0bb9a8",
+        "type": "function",
+        "z": "a4fce772.bbc848",
+        "name": "Build SQLite Query",
+        "func": "var action = \"INSERT INTO\";\nvar tableName = \"testTable(temperature, date, timestamp)\";\nvar values = \"values(\" + msg.payload + \", \" + \"date('now'), time('now'))\"\n\n\nmsg.topic = (\"INSERT INTO \" + tableName + \" \" + values)\n\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 300,
+        "wires": [
+            [
+                "2f1b62e0.0025de",
+                "6ce68ce0.ffa534",
+                "6b3ff467.c1a68c"
+            ]
+        ]
+    },
+    {
+        "id": "2f1b62e0.0025de",
+        "type": "debug",
+        "z": "a4fce772.bbc848",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "x": 820,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "a33d6fba.619dc",
+        "type": "exec",
+        "z": "a4fce772.bbc848",
+        "command": " python /home/pi/smart_garage_project/get_temp.py",
+        "addpay": false,
+        "append": "2302 4",
+        "useSpawn": "true",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 370,
+        "y": 80,
+        "wires": [
+            [
+                "a94e16f5.763168",
+                "c87fd659.0bb9a8"
+            ],
+            [
+                "a94e16f5.763168"
+            ],
+            [
+                "a94e16f5.763168"
+            ]
+        ]
+    },
+    {
+        "id": "f67f8b98.330878",
+        "type": "inject",
+        "z": "a4fce772.bbc848",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "6",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 160,
+        "wires": [
+            [
+                "a33d6fba.619dc"
+            ]
+        ]
+    },
+    {
+        "id": "3a4a368d.cd645a",
+        "type": "ui_group",
+        "z": "",
+        "name": "Sensor Gauges",
+        "tab": "6b4d9d10.d13ca4",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "a8d48771.9912b8",
+        "type": "sqlitedb",
+        "z": "",
+        "db": "/home/pi/smart_garage_project/test.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "6b4d9d10.d13ca4",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard"
+    }
+]

@@ -1,0 +1,222 @@
+[
+    {
+        "id": "3e06b9cb.c7b0e6",
+        "type": "tab",
+        "label": "CO input",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c248c3ab.a0c08",
+        "type": "serial in",
+        "z": "3e06b9cb.c7b0e6",
+        "name": "CO Data From Arduino 1",
+        "serial": "449eed4e.b15f44",
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "aef9914a.eae06",
+                "49a733a3.355f3c"
+            ]
+        ]
+    },
+    {
+        "id": "51c759cd.669f28",
+        "type": "ui_gauge",
+        "z": "3e06b9cb.c7b0e6",
+        "name": "CO Sensor Data Gauge",
+        "group": "3a4a368d.cd645a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Carbon Monoxide Concentration",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "333",
+        "seg2": "667",
+        "x": 1010,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "aef9914a.eae06",
+        "type": "debug",
+        "z": "3e06b9cb.c7b0e6",
+        "name": "CO command line output",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 530,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a0eaf781.73c108",
+        "type": "inject",
+        "z": "3e06b9cb.c7b0e6",
+        "name": "Trigger Data",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 140,
+        "y": 500,
+        "wires": [
+            [
+                "c9d81946.cc5748"
+            ]
+        ]
+    },
+    {
+        "id": "c9d81946.cc5748",
+        "type": "random",
+        "z": "3e06b9cb.c7b0e6",
+        "name": "Random CO Value",
+        "low": "0",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 370,
+        "y": 500,
+        "wires": [
+            [
+                "49a733a3.355f3c"
+            ]
+        ]
+    },
+    {
+        "id": "87265014.33ef9",
+        "type": "sqlite",
+        "z": "3e06b9cb.c7b0e6",
+        "mydb": "a8d48771.9912b8",
+        "sqlquery": "msg.topic",
+        "sql": "CREATE table msg.payload(temperature int(8));",
+        "name": "dB access",
+        "x": 910,
+        "y": 460,
+        "wires": [
+            [
+                "fa87f61e.352628"
+            ]
+        ]
+    },
+    {
+        "id": "fa87f61e.352628",
+        "type": "debug",
+        "z": "3e06b9cb.c7b0e6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1090,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "49a733a3.355f3c",
+        "type": "function",
+        "z": "3e06b9cb.c7b0e6",
+        "name": "Build SQLite Query",
+        "func": "var action = \"INSERT INTO\";\nvar tableName = \"testTable(carbonmonoxide, date, timestamp)\";\nvar values = \"values(\" + msg.payload + \", \" + \"date('now'), time('now'))\"\n\n\nmsg.topic = (\"INSERT INTO \" + tableName + \" \" + values)\n\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 630,
+        "y": 400,
+        "wires": [
+            [
+                "51c759cd.669f28",
+                "45dff419.c6138c",
+                "87265014.33ef9"
+            ]
+        ]
+    },
+    {
+        "id": "4607a0f5.e0f29",
+        "type": "comment",
+        "z": "3e06b9cb.c7b0e6",
+        "name": "SAMPLE DATA BELOW",
+        "info": "",
+        "x": 120,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "729a1567.2bc1ec",
+        "type": "comment",
+        "z": "3e06b9cb.c7b0e6",
+        "name": "TRUE DATA ABOVE",
+        "info": "",
+        "x": 110,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "45dff419.c6138c",
+        "type": "debug",
+        "z": "3e06b9cb.c7b0e6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "x": 760,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "449eed4e.b15f44",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "/dev/ttyUSB1",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "\\t",
+        "bin": "false",
+        "out": "char",
+        "addchar": false,
+        "responsetimeout": "500"
+    },
+    {
+        "id": "3a4a368d.cd645a",
+        "type": "ui_group",
+        "z": "",
+        "name": "Sensor Gauges",
+        "tab": "6b4d9d10.d13ca4",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "a8d48771.9912b8",
+        "type": "sqlitedb",
+        "z": "",
+        "db": "/home/pi/smart_garage_project/test.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "6b4d9d10.d13ca4",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard"
+    }
+]
