@@ -1,20 +1,20 @@
 [
     {
-        "id": "9daf0e8f.13384",
+        "id": "484c84d2.52995c",
         "type": "tab",
         "label": "Camera Feed",
-        "disabled": true,
+        "disabled": false,
         "info": ""
     },
     {
-        "id": "89425d4b.dbda1",
+        "id": "4c642c32.7a5e34",
         "type": "inject",
-        "z": "9daf0e8f.13384",
+        "z": "484c84d2.52995c",
         "name": "",
         "topic": "",
         "payload": "",
         "payloadType": "str",
-        "repeat": "5",
+        "repeat": "6",
         "crontab": "",
         "once": true,
         "onceDelay": "5",
@@ -22,17 +22,17 @@
         "y": 200,
         "wires": [
             [
-                "3942f3ab.578c4c"
+                "4663eae.e068714"
             ]
         ]
     },
     {
-        "id": "3942f3ab.578c4c",
+        "id": "4663eae.e068714",
         "type": "exec",
-        "z": "9daf0e8f.13384",
+        "z": "484c84d2.52995c",
         "command": "raspistill",
         "addpay": true,
-        "append": "-vf -w 640 -h 480 -o -",
+        "append": "-w 640 -h 480 -o -",
         "useSpawn": "false",
         "timer": "",
         "oldrc": false,
@@ -41,16 +41,16 @@
         "y": 200,
         "wires": [
             [
-                "c8b67af1.a461b8"
+                "8c6bd7d6.e4a148"
             ],
             [],
             []
         ]
     },
     {
-        "id": "c8b67af1.a461b8",
+        "id": "8c6bd7d6.e4a148",
         "type": "base64",
-        "z": "9daf0e8f.13384",
+        "z": "484c84d2.52995c",
         "name": "",
         "action": "str",
         "property": "payload",
@@ -58,14 +58,14 @@
         "y": 200,
         "wires": [
             [
-                "3f57f19e.06a81e"
+                "4f8b5f2c.831b2"
             ]
         ]
     },
     {
-        "id": "3f57f19e.06a81e",
+        "id": "4f8b5f2c.831b2",
         "type": "template",
-        "z": "9daf0e8f.13384",
+        "z": "484c84d2.52995c",
         "name": "",
         "field": "payload",
         "fieldType": "msg",
@@ -77,17 +77,17 @@
         "y": 200,
         "wires": [
             [
-                "cf4da671.896018"
+                "64fa1134.2712e"
             ]
         ]
     },
     {
-        "id": "cf4da671.896018",
+        "id": "64fa1134.2712e",
         "type": "ui_template",
-        "z": "9daf0e8f.13384",
-        "group": "2a358d.f1769a74",
+        "z": "484c84d2.52995c",
+        "group": "bd6ce3ce.624b2",
         "name": "Display Camera Feed",
-        "order": 0,
+        "order": 2,
         "width": "6",
         "height": "5",
         "format": "<div ng-bind-html=\"msg.payload\"></div>",
@@ -101,20 +101,23 @@
         ]
     },
     {
-        "id": "2a358d.f1769a74",
+        "id": "bd6ce3ce.624b2",
         "type": "ui_group",
         "z": "",
         "name": "Other Information",
-        "tab": "6b4d9d10.d13ca4",
+        "tab": "6c3d9d29.c0eff4",
+        "order": 2,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "6b4d9d10.d13ca4",
+        "id": "6c3d9d29.c0eff4",
         "type": "ui_tab",
         "z": "",
         "name": "Home",
-        "icon": "dashboard"
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     }
 ]

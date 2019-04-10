@@ -1,32 +1,33 @@
 [
     {
-        "id": "3e06b9cb.c7b0e6",
+        "id": "8db071a9.e69ef",
         "type": "tab",
         "label": "CO input",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "c248c3ab.a0c08",
+        "id": "c3b53805.60b9a8",
         "type": "serial in",
-        "z": "3e06b9cb.c7b0e6",
+        "z": "8db071a9.e69ef",
         "name": "CO Data From Arduino 1",
-        "serial": "449eed4e.b15f44",
+        "serial": "13b5fca7.c54343",
         "x": 190,
         "y": 300,
         "wires": [
             [
-                "aef9914a.eae06",
-                "49a733a3.355f3c"
+                "2e350c6a.14f624",
+                "fac47f41.3cb29",
+                "13d16c75.443ca4"
             ]
         ]
     },
     {
-        "id": "51c759cd.669f28",
+        "id": "e0102aa5.391c68",
         "type": "ui_gauge",
-        "z": "3e06b9cb.c7b0e6",
+        "z": "8db071a9.e69ef",
         "name": "CO Sensor Data Gauge",
-        "group": "3a4a368d.cd645a",
+        "group": "70c9f74b.9a9728",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -35,22 +36,22 @@
         "label": "ppm",
         "format": "{{value}}",
         "min": 0,
-        "max": "1000",
+        "max": "500",
         "colors": [
             "#00b500",
             "#e6e600",
             "#ca3838"
         ],
-        "seg1": "333",
-        "seg2": "667",
+        "seg1": "166",
+        "seg2": "266",
         "x": 1010,
         "y": 400,
         "wires": []
     },
     {
-        "id": "aef9914a.eae06",
+        "id": "2e350c6a.14f624",
         "type": "debug",
-        "z": "3e06b9cb.c7b0e6",
+        "z": "8db071a9.e69ef",
         "name": "CO command line output",
         "active": false,
         "tosidebar": true,
@@ -62,9 +63,9 @@
         "wires": []
     },
     {
-        "id": "a0eaf781.73c108",
+        "id": "3fd9576b.671968",
         "type": "inject",
-        "z": "3e06b9cb.c7b0e6",
+        "z": "8db071a9.e69ef",
         "name": "Trigger Data",
         "topic": "",
         "payload": "true",
@@ -77,47 +78,31 @@
         "y": 500,
         "wires": [
             [
-                "c9d81946.cc5748"
+                "d2d95b7d.8c1a18"
             ]
         ]
     },
     {
-        "id": "c9d81946.cc5748",
+        "id": "d2d95b7d.8c1a18",
         "type": "random",
-        "z": "3e06b9cb.c7b0e6",
+        "z": "8db071a9.e69ef",
         "name": "Random CO Value",
         "low": "0",
-        "high": "1000",
+        "high": "0",
         "inte": "true",
         "property": "payload",
         "x": 370,
         "y": 500,
         "wires": [
             [
-                "49a733a3.355f3c"
+                "fac47f41.3cb29"
             ]
         ]
     },
     {
-        "id": "87265014.33ef9",
-        "type": "sqlite",
-        "z": "3e06b9cb.c7b0e6",
-        "mydb": "a8d48771.9912b8",
-        "sqlquery": "msg.topic",
-        "sql": "CREATE table msg.payload(temperature int(8));",
-        "name": "dB access",
-        "x": 910,
-        "y": 460,
-        "wires": [
-            [
-                "fa87f61e.352628"
-            ]
-        ]
-    },
-    {
-        "id": "fa87f61e.352628",
+        "id": "900a60d0.49591",
         "type": "debug",
-        "z": "3e06b9cb.c7b0e6",
+        "z": "8db071a9.e69ef",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -129,9 +114,9 @@
         "wires": []
     },
     {
-        "id": "49a733a3.355f3c",
+        "id": "fac47f41.3cb29",
         "type": "function",
-        "z": "3e06b9cb.c7b0e6",
+        "z": "8db071a9.e69ef",
         "name": "Build SQLite Query",
         "func": "var action = \"INSERT INTO\";\nvar tableName = \"testTable(carbonmonoxide, date, timestamp)\";\nvar values = \"values(\" + msg.payload + \", \" + \"date('now'), time('now'))\"\n\n\nmsg.topic = (\"INSERT INTO \" + tableName + \" \" + values)\n\n\n\n\nreturn msg;",
         "outputs": 1,
@@ -140,16 +125,15 @@
         "y": 400,
         "wires": [
             [
-                "51c759cd.669f28",
-                "45dff419.c6138c",
-                "87265014.33ef9"
+                "e0102aa5.391c68",
+                "bdbad522.825728"
             ]
         ]
     },
     {
-        "id": "4607a0f5.e0f29",
+        "id": "bf585924.1c5dd8",
         "type": "comment",
-        "z": "3e06b9cb.c7b0e6",
+        "z": "8db071a9.e69ef",
         "name": "SAMPLE DATA BELOW",
         "info": "",
         "x": 120,
@@ -157,9 +141,9 @@
         "wires": []
     },
     {
-        "id": "729a1567.2bc1ec",
+        "id": "b91d292.0c9bbd8",
         "type": "comment",
-        "z": "3e06b9cb.c7b0e6",
+        "z": "8db071a9.e69ef",
         "name": "TRUE DATA ABOVE",
         "info": "",
         "x": 110,
@@ -167,9 +151,9 @@
         "wires": []
     },
     {
-        "id": "45dff419.c6138c",
+        "id": "bdbad522.825728",
         "type": "debug",
-        "z": "3e06b9cb.c7b0e6",
+        "z": "8db071a9.e69ef",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -181,7 +165,35 @@
         "wires": []
     },
     {
-        "id": "449eed4e.b15f44",
+        "id": "13d16c75.443ca4",
+        "type": "function",
+        "z": "8db071a9.e69ef",
+        "name": "Decipher CO level into 1 or 0",
+        "func": "var threshold = 100;\nvar status = 0; // 0=safe; 1=unsafe\n\nif(msg.payload > threshold) // unsafe case\n    status = 1;\nelse\n    status = 0;\n    \n    \nreturn status;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 638,
+        "y": 356.22222900390625,
+        "wires": [
+            [
+                "ccc4a941.8ec4a8"
+            ]
+        ]
+    },
+    {
+        "id": "ccc4a941.8ec4a8",
+        "type": "link out",
+        "z": "8db071a9.e69ef",
+        "name": "co status",
+        "links": [
+            "c1458b89.f6b6a8"
+        ],
+        "x": 860.5,
+        "y": 350.22222900390625,
+        "wires": []
+    },
+    {
+        "id": "13b5fca7.c54343",
         "type": "serial-port",
         "z": "",
         "serialport": "/dev/ttyUSB1",
@@ -196,27 +208,23 @@
         "responsetimeout": "500"
     },
     {
-        "id": "3a4a368d.cd645a",
+        "id": "70c9f74b.9a9728",
         "type": "ui_group",
         "z": "",
-        "name": "Sensor Gauges",
-        "tab": "6b4d9d10.d13ca4",
+        "name": "Sensor Data",
+        "tab": "6c3d9d29.c0eff4",
+        "order": 1,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "a8d48771.9912b8",
-        "type": "sqlitedb",
-        "z": "",
-        "db": "/home/pi/smart_garage_project/test.db",
-        "mode": "RWC"
-    },
-    {
-        "id": "6b4d9d10.d13ca4",
+        "id": "6c3d9d29.c0eff4",
         "type": "ui_tab",
         "z": "",
         "name": "Home",
-        "icon": "dashboard"
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     }
 ]

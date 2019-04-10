@@ -1,0 +1,1455 @@
+[
+    {
+        "id": "8113b1d9.abdc4",
+        "type": "tab",
+        "label": "Database manipulation",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "484c84d2.52995c",
+        "type": "tab",
+        "label": "Camera Feed",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8db071a9.e69ef",
+        "type": "tab",
+        "label": "CO input",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "da5bd104.3f7ce",
+        "type": "tab",
+        "label": "Flooding Input",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "db3b200f.a5556",
+        "type": "tab",
+        "label": "Garage Door Control",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d7fa6883.f72c38",
+        "type": "tab",
+        "label": "Hall Effect Input",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4cb62f43.4d1d9",
+        "type": "tab",
+        "label": "Humdity Input",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c1a4aa02.1c8648",
+        "type": "tab",
+        "label": "Learn New Garage Door",
+        "disabled": false,
+        "info": "This flow is used when first setting up the system. \nSince a generic garage door opener is used, it must be \"taught\" what garage door it will open\n\nThis is done by pressing the \"learn\" button on the garage door motor\nthen clicking the learn button on the Node-RED UI settings page\n"
+    },
+    {
+        "id": "cc15a456.b24978",
+        "type": "tab",
+        "label": "Temerature input",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6a0e5d0b.088f34",
+        "type": "tab",
+        "label": "Status Alerts",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "13b5fca7.c54343",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "/dev/ttyUSB1",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "\\t",
+        "bin": "false",
+        "out": "char",
+        "addchar": false,
+        "responsetimeout": "500"
+    },
+    {
+        "id": "aff53451.087a88",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "/dev/ttyUSB0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": false,
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "6c3d9d29.c0eff4",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "70c9f74b.9a9728",
+        "type": "ui_group",
+        "z": "",
+        "name": "Sensor Data",
+        "tab": "6c3d9d29.c0eff4",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "171ffc66.4e0794",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Settings",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "da19467f.dd5f18",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "171ffc66.4e0794",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "bd6ce3ce.624b2",
+        "type": "ui_group",
+        "z": "",
+        "name": "Other Information",
+        "tab": "6c3d9d29.c0eff4",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "686c1c81.036054",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "82f39050.076f7",
+        "type": "twilio-api",
+        "z": "",
+        "name": "Send SMS Message",
+        "sid": "ACdbfca6722aa9ce8645b882c98b42a253",
+        "from": "17372042438"
+    },
+    {
+        "id": "74603b7f.131dd4",
+        "type": "inject",
+        "z": "8113b1d9.abdc4",
+        "name": "CREATE",
+        "topic": "CREATE TABLE testTable(carbonmonoxide NUMERIC, humidity NUMERIC, temperature NUMERIC, date DATE, timestamp TIME)",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 280,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b6dac12b.c7997",
+        "type": "inject",
+        "z": "8113b1d9.abdc4",
+        "name": "INSERT",
+        "topic": "INSERT INTO testTable(temperature, date, timestamp) values(22.4, date('now'), time('now'))",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 280,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6fdb725f.68f7fc",
+        "type": "inject",
+        "z": "8113b1d9.abdc4",
+        "name": "SELECT",
+        "topic": "SELECT * FROM testTable",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 280,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fe22b178.8f47b",
+        "type": "inject",
+        "z": "8113b1d9.abdc4",
+        "name": "DELETE",
+        "topic": "DELETE from testTable",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 280,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "58453077.035cb",
+        "type": "inject",
+        "z": "8113b1d9.abdc4",
+        "name": "DROP",
+        "topic": "DROP TABLE testTable",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 270,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9163b071.21e8b",
+        "type": "debug",
+        "z": "8113b1d9.abdc4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 760,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "4c642c32.7a5e34",
+        "type": "inject",
+        "z": "484c84d2.52995c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "6",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "4663eae.e068714"
+            ]
+        ]
+    },
+    {
+        "id": "4663eae.e068714",
+        "type": "exec",
+        "z": "484c84d2.52995c",
+        "command": "raspistill",
+        "addpay": true,
+        "append": "-w 640 -h 480 -o -",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "8c6bd7d6.e4a148"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8c6bd7d6.e4a148",
+        "type": "base64",
+        "z": "484c84d2.52995c",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 540,
+        "y": 200,
+        "wires": [
+            [
+                "4f8b5f2c.831b2"
+            ]
+        ]
+    },
+    {
+        "id": "4f8b5f2c.831b2",
+        "type": "template",
+        "z": "484c84d2.52995c",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<img width=\"294px\" height=\"221px\" src=\"data:image/jpg;base64,{{{payload}}}\">",
+        "output": "str",
+        "x": 700,
+        "y": 200,
+        "wires": [
+            [
+                "64fa1134.2712e"
+            ]
+        ]
+    },
+    {
+        "id": "64fa1134.2712e",
+        "type": "ui_template",
+        "z": "484c84d2.52995c",
+        "group": "bd6ce3ce.624b2",
+        "name": "Display Camera Feed",
+        "order": 2,
+        "width": "6",
+        "height": "5",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 920,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c3b53805.60b9a8",
+        "type": "serial in",
+        "z": "8db071a9.e69ef",
+        "name": "CO Data From Arduino 1",
+        "serial": "13b5fca7.c54343",
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "2e350c6a.14f624",
+                "fac47f41.3cb29",
+                "13d16c75.443ca4"
+            ]
+        ]
+    },
+    {
+        "id": "e0102aa5.391c68",
+        "type": "ui_gauge",
+        "z": "8db071a9.e69ef",
+        "name": "CO Sensor Data Gauge",
+        "group": "70c9f74b.9a9728",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Carbon Monoxide Concentration",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "500",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "166",
+        "seg2": "266",
+        "x": 1010,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "2e350c6a.14f624",
+        "type": "debug",
+        "z": "8db071a9.e69ef",
+        "name": "CO command line output",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 530,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3fd9576b.671968",
+        "type": "inject",
+        "z": "8db071a9.e69ef",
+        "name": "Trigger Data",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 140,
+        "y": 500,
+        "wires": [
+            [
+                "d2d95b7d.8c1a18"
+            ]
+        ]
+    },
+    {
+        "id": "d2d95b7d.8c1a18",
+        "type": "random",
+        "z": "8db071a9.e69ef",
+        "name": "Random CO Value",
+        "low": "0",
+        "high": "0",
+        "inte": "true",
+        "property": "payload",
+        "x": 370,
+        "y": 500,
+        "wires": [
+            [
+                "fac47f41.3cb29"
+            ]
+        ]
+    },
+    {
+        "id": "900a60d0.49591",
+        "type": "debug",
+        "z": "8db071a9.e69ef",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1090,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "fac47f41.3cb29",
+        "type": "function",
+        "z": "8db071a9.e69ef",
+        "name": "Build SQLite Query",
+        "func": "var action = \"INSERT INTO\";\nvar tableName = \"testTable(carbonmonoxide, date, timestamp)\";\nvar values = \"values(\" + msg.payload + \", \" + \"date('now'), time('now'))\"\n\n\nmsg.topic = (\"INSERT INTO \" + tableName + \" \" + values)\n\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 630,
+        "y": 400,
+        "wires": [
+            [
+                "e0102aa5.391c68",
+                "bdbad522.825728"
+            ]
+        ]
+    },
+    {
+        "id": "bf585924.1c5dd8",
+        "type": "comment",
+        "z": "8db071a9.e69ef",
+        "name": "SAMPLE DATA BELOW",
+        "info": "",
+        "x": 120,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "b91d292.0c9bbd8",
+        "type": "comment",
+        "z": "8db071a9.e69ef",
+        "name": "TRUE DATA ABOVE",
+        "info": "",
+        "x": 110,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "bdbad522.825728",
+        "type": "debug",
+        "z": "8db071a9.e69ef",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "x": 760,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "c5c8608b.6a93a",
+        "type": "rpi-gpio in",
+        "z": "da5bd104.3f7ce",
+        "name": "Flooding Sensor Input",
+        "pin": "18",
+        "intype": "down",
+        "debounce": "25",
+        "read": true,
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "fd700260.03112",
+                "58a7357a.17df2c",
+                "731493dd.baddec"
+            ]
+        ]
+    },
+    {
+        "id": "fd700260.03112",
+        "type": "debug",
+        "z": "da5bd104.3f7ce",
+        "name": "Flooding Sensor Input (pin 40)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 480,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "54c20a73.321da4",
+        "type": "rpi-gpio out",
+        "z": "db3b200f.a5556",
+        "name": "Garage Door Opener Control",
+        "pin": "22",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "x": 920,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "4f3cfebc.68fb8",
+        "type": "ui_button",
+        "z": "db3b200f.a5556",
+        "name": "Press Garage Door Button",
+        "group": "bd6ce3ce.624b2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Garage Door Button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "539e12d4.8b8bfc"
+            ]
+        ]
+    },
+    {
+        "id": "539e12d4.8b8bfc",
+        "type": "trigger",
+        "z": "db3b200f.a5556",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1500",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "How long to hold garage door button",
+        "x": 590,
+        "y": 220,
+        "wires": [
+            [
+                "54c20a73.321da4"
+            ]
+        ]
+    },
+    {
+        "id": "21884cc5.cd30b4",
+        "type": "debug",
+        "z": "d7fa6883.f72c38",
+        "name": "Hall Effect Input",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 470,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f3f9c5d6.1655d8",
+        "type": "ui_gauge",
+        "z": "4cb62f43.4d1d9",
+        "name": "Relitive Humidity Gauge",
+        "group": "70c9f74b.9a9728",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Relitive Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "50",
+        "seg2": "75",
+        "x": 990,
+        "y": 320,
+        "wires": [],
+        "inputLabels": [
+            "Relative Humidity"
+        ]
+    },
+    {
+        "id": "f66b9410.4a9248",
+        "type": "debug",
+        "z": "4cb62f43.4d1d9",
+        "name": "Humidity Sensor Data Display",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 830,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b1e07367.d2de5",
+        "type": "inject",
+        "z": "4cb62f43.4d1d9",
+        "name": "Trigger Data",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "6",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "x": 180,
+        "y": 440,
+        "wires": [
+            [
+                "e455ea78.e44a68"
+            ]
+        ]
+    },
+    {
+        "id": "e455ea78.e44a68",
+        "type": "random",
+        "z": "4cb62f43.4d1d9",
+        "name": "Random Humidity Value",
+        "low": "0",
+        "high": "100",
+        "inte": "true",
+        "property": "payload",
+        "x": 410,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c6b2a6d.eb8ae4",
+        "type": "comment",
+        "z": "4cb62f43.4d1d9",
+        "name": "TRUE DATA ABOVE",
+        "info": "",
+        "x": 150,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "7ac74fe.5cb6cb",
+        "type": "comment",
+        "z": "4cb62f43.4d1d9",
+        "name": "SAMPLE DATA BELOW",
+        "info": "",
+        "x": 160,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "48e4049c.fea26c",
+        "type": "debug",
+        "z": "4cb62f43.4d1d9",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1050,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "732f470f.21fab8",
+        "type": "function",
+        "z": "4cb62f43.4d1d9",
+        "name": "Build SQLite Query",
+        "func": "var action = \"INSERT INTO\";\nvar tableName = \"testTable(humidity, date, timestamp)\";\nvar values = \"values(\" + msg.payload + \", \" + \"date('now'), time('now'))\"\n\n\nmsg.topic = (\"INSERT INTO \" + tableName + \" \" + values)\n\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 320,
+        "wires": [
+            [
+                "92c460ee.81546",
+                "f3f9c5d6.1655d8"
+            ]
+        ]
+    },
+    {
+        "id": "92c460ee.81546",
+        "type": "debug",
+        "z": "4cb62f43.4d1d9",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "x": 960,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "32422025.c4a1b",
+        "type": "exec",
+        "z": "4cb62f43.4d1d9",
+        "command": " python /home/pi/smart_garage_project/get_humidity.py",
+        "addpay": false,
+        "append": "2302 22",
+        "useSpawn": "true",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 420,
+        "y": 100,
+        "wires": [
+            [
+                "f66b9410.4a9248",
+                "732f470f.21fab8"
+            ],
+            [
+                "f66b9410.4a9248"
+            ],
+            [
+                "f66b9410.4a9248"
+            ]
+        ]
+    },
+    {
+        "id": "f67dd6aa.cea298",
+        "type": "inject",
+        "z": "4cb62f43.4d1d9",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "6",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "3",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "32422025.c4a1b"
+            ]
+        ]
+    },
+    {
+        "id": "a4ed270.dccefd8",
+        "type": "rpi-gpio out",
+        "z": "c1a4aa02.1c8648",
+        "name": "Garage Door Opener Control",
+        "pin": "38",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "x": 860,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ffcce1f0.710d9",
+        "type": "ui_button",
+        "z": "c1a4aa02.1c8648",
+        "name": "Press Garage Door Button",
+        "group": "da19467f.dd5f18",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Learn New Garage Door",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 120,
+        "y": 160,
+        "wires": [
+            [
+                "156317ba.bd7cc8"
+            ]
+        ]
+    },
+    {
+        "id": "156317ba.bd7cc8",
+        "type": "trigger",
+        "z": "c1a4aa02.1c8648",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1500",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "name": "How long to hold garage door button",
+        "x": 530,
+        "y": 160,
+        "wires": [
+            [
+                "a4ed270.dccefd8"
+            ]
+        ]
+    },
+    {
+        "id": "3a12c702.740928",
+        "type": "debug",
+        "z": "cc15a456.b24978",
+        "name": "Temperature Sensor Data Display",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 840,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9ebc7125.787a3",
+        "type": "ui_gauge",
+        "z": "cc15a456.b24978",
+        "name": "Temerature Sensor Data Gauge",
+        "group": "70c9f74b.9a9728",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Current Temperature",
+        "label": "F",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "130",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "32",
+        "seg2": "85",
+        "x": 970,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "4ef9bb99.d936b4",
+        "type": "inject",
+        "z": "cc15a456.b24978",
+        "name": "Trigger Data",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "8",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "4",
+        "x": 100,
+        "y": 420,
+        "wires": [
+            [
+                "961b9fed.f3954"
+            ]
+        ]
+    },
+    {
+        "id": "961b9fed.f3954",
+        "type": "random",
+        "z": "cc15a456.b24978",
+        "name": "Random Temperature Value",
+        "low": "-20",
+        "high": "130",
+        "inte": "true",
+        "property": "payload",
+        "x": 320,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e3511c8.156a5e",
+        "type": "comment",
+        "z": "cc15a456.b24978",
+        "name": "TRUE DATA ABOVE",
+        "info": "",
+        "x": 110,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "3f23a3ef.733bac",
+        "type": "comment",
+        "z": "cc15a456.b24978",
+        "name": "SAMPLE DATA BELOW",
+        "info": "",
+        "x": 120,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "f295f0f1.0406a",
+        "type": "debug",
+        "z": "cc15a456.b24978",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1090,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "ee1d37ac.4e8b58",
+        "type": "function",
+        "z": "cc15a456.b24978",
+        "name": "Build SQLite Query",
+        "func": "var action = \"INSERT INTO\";\nvar tableName = \"testTable(temperature, date, timestamp)\";\nvar values = \"values(\" + msg.payload + \", \" + \"date('now'), time('now'))\"\n\n\nmsg.topic = (\"INSERT INTO \" + tableName + \" \" + values)\n\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 300,
+        "wires": [
+            [
+                "777a8d06.8430b4",
+                "9ebc7125.787a3"
+            ]
+        ]
+    },
+    {
+        "id": "777a8d06.8430b4",
+        "type": "debug",
+        "z": "cc15a456.b24978",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "x": 820,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "ad07423c.e902a",
+        "type": "exec",
+        "z": "cc15a456.b24978",
+        "command": " python /home/pi/smart_garage_project/get_temp.py",
+        "addpay": false,
+        "append": "2302 22",
+        "useSpawn": "true",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 370,
+        "y": 80,
+        "wires": [
+            [
+                "3a12c702.740928",
+                "ee1d37ac.4e8b58"
+            ],
+            [
+                "3a12c702.740928"
+            ],
+            [
+                "3a12c702.740928"
+            ]
+        ]
+    },
+    {
+        "id": "349699fe.d40996",
+        "type": "inject",
+        "z": "cc15a456.b24978",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "6",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 160,
+        "wires": [
+            [
+                "ad07423c.e902a"
+            ]
+        ]
+    },
+    {
+        "id": "eda137c0.259268",
+        "type": "ui_gauge",
+        "z": "d7fa6883.f72c38",
+        "name": "Garage Door Open?",
+        "group": "bd6ce3ce.624b2",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Garage Door Status",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#1aa312",
+            "#ad0000",
+            "#ac0606"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 632,
+        "y": 198,
+        "wires": []
+    },
+    {
+        "id": "ff8d603f.92d93",
+        "type": "rpi-gpio in",
+        "z": "d7fa6883.f72c38",
+        "name": "Hall Effect Input",
+        "pin": "11",
+        "intype": "tri",
+        "debounce": "25",
+        "read": true,
+        "x": 159,
+        "y": 181,
+        "wires": [
+            [
+                "eda137c0.259268",
+                "21884cc5.cd30b4",
+                "e752ae3b.2a454",
+                "5830a476.550cdc"
+            ]
+        ]
+    },
+    {
+        "id": "58a7357a.17df2c",
+        "type": "ui_gauge",
+        "z": "da5bd104.3f7ce",
+        "name": "",
+        "group": "bd6ce3ce.624b2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Flood Sensor",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 568.1666717529297,
+        "y": 258.22222423553467,
+        "wires": []
+    },
+    {
+        "id": "e752ae3b.2a454",
+        "type": "function",
+        "z": "d7fa6883.f72c38",
+        "name": "Save Global Variable",
+        "func": "status = msg.payload;\n\n// assign garage_status global var to 1 if open, 0 if closed\nglobal.set('garage_status',status);",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 507.16668701171875,
+        "y": 290.3333435058594,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d8aac7e9.9d0308",
+        "type": "debug",
+        "z": "6a0e5d0b.088f34",
+        "name": "Hall Effect (post link)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 300.1666946411133,
+        "y": 346.00000190734863,
+        "wires": []
+    },
+    {
+        "id": "1c104764.d391d9",
+        "type": "debug",
+        "z": "6a0e5d0b.088f34",
+        "name": "CO Status",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 371.0000534057617,
+        "y": 574.666669845581,
+        "wires": []
+    },
+    {
+        "id": "b35363f7.42043",
+        "type": "debug",
+        "z": "6a0e5d0b.088f34",
+        "name": "Flooding Sensor",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 539.0000534057617,
+        "y": 162.66665267944336,
+        "wires": []
+    },
+    {
+        "id": "13d16c75.443ca4",
+        "type": "function",
+        "z": "8db071a9.e69ef",
+        "name": "Decipher CO level into 1 or 0",
+        "func": "var threshold = 100;\nvar status = 0; // 0=safe; 1=unsafe\n\nif(msg.payload > threshold) // unsafe case\n    status = 1;\nelse\n    status = 0;\n    \n    \nreturn status;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 638,
+        "y": 356.22222900390625,
+        "wires": [
+            [
+                "ccc4a941.8ec4a8"
+            ]
+        ]
+    },
+    {
+        "id": "63537ccb.aa72f4",
+        "type": "link in",
+        "z": "6a0e5d0b.088f34",
+        "name": "garage door status",
+        "links": [
+            "5830a476.550cdc"
+        ],
+        "x": 199.50000286102295,
+        "y": 296.1111135482788,
+        "wires": [
+            [
+                "d8aac7e9.9d0308"
+            ]
+        ]
+    },
+    {
+        "id": "5830a476.550cdc",
+        "type": "link out",
+        "z": "d7fa6883.f72c38",
+        "name": "Hall Effect Input",
+        "links": [
+            "63537ccb.aa72f4"
+        ],
+        "x": 472.5,
+        "y": 343,
+        "wires": []
+    },
+    {
+        "id": "899432a5.97efa",
+        "type": "link in",
+        "z": "6a0e5d0b.088f34",
+        "name": "flood status",
+        "links": [
+            "731493dd.baddec"
+        ],
+        "x": 272.5000104904175,
+        "y": 106.11111259460449,
+        "wires": [
+            [
+                "b35363f7.42043",
+                "8466b49c.39c4a8"
+            ]
+        ]
+    },
+    {
+        "id": "c1458b89.f6b6a8",
+        "type": "link in",
+        "z": "6a0e5d0b.088f34",
+        "name": "co status",
+        "links": [
+            "ccc4a941.8ec4a8"
+        ],
+        "x": 296.4999990463257,
+        "y": 527.1111145019531,
+        "wires": [
+            [
+                "1c104764.d391d9",
+                "69b58160.67317"
+            ]
+        ]
+    },
+    {
+        "id": "731493dd.baddec",
+        "type": "link out",
+        "z": "da5bd104.3f7ce",
+        "name": "flooding input",
+        "links": [
+            "899432a5.97efa"
+        ],
+        "x": 457.5,
+        "y": 330,
+        "wires": []
+    },
+    {
+        "id": "ccc4a941.8ec4a8",
+        "type": "link out",
+        "z": "8db071a9.e69ef",
+        "name": "co status",
+        "links": [
+            "c1458b89.f6b6a8"
+        ],
+        "x": 860.5,
+        "y": 350.22222900390625,
+        "wires": []
+    },
+    {
+        "id": "217374e5.8ef81c",
+        "type": "ui_toast",
+        "z": "6a0e5d0b.088f34",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "Flood Notification",
+        "x": 920.1000518798828,
+        "y": 53,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "69b58160.67317",
+        "type": "ui_toast",
+        "z": "6a0e5d0b.088f34",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "Carbon Monoxide Notification",
+        "x": 596,
+        "y": 478,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8466b49c.39c4a8",
+        "type": "function",
+        "z": "6a0e5d0b.088f34",
+        "name": "Create Flooding Message",
+        "func": "if(msg.payload) { // if flooding sensor detects flood\n    \n    msg.payload = \"It is flooding!\";\n    return msg;\n    \n} else {\n    \n    return null;\n    \n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 626.1000366210938,
+        "y": 46,
+        "wires": [
+            [
+                "217374e5.8ef81c",
+                "49cf6694.f281e8"
+            ]
+        ]
+    },
+    {
+        "id": "49cf6694.f281e8",
+        "type": "twilio out",
+        "z": "6a0e5d0b.088f34",
+        "twilio": "82f39050.076f7",
+        "twilioType": "sms",
+        "url": "",
+        "number": "5124665092",
+        "name": "Send SMS Message Node",
+        "x": 876,
+        "y": 137.00000190734863,
+        "wires": []
+    }
+]
